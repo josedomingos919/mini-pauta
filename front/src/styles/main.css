@@ -1,0 +1,16 @@
+.bold-input {
+  font-weight: bold;
+}
+
+.x-input {
+  border: none;
+  height: 48px;
+}
+
+.mt-13 {
+  margin-top: 13px;
+}
+
+.title-p {
+  color: #bdbdbd;
+}
