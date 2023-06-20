@@ -1,7 +1,35 @@
 import { Card, Table, Input, Button, CardHeader } from "reactstrap";
+import { DiciplineRepository } from "../repository/disciplineRepository";
+
 import Select from "react-select";
+import { useEffect, useState } from "react";
+import { StudentRepository } from "../repository/studentRepository";
 
 export function Pauta() {
+  const [students, setStudents] = useState([]);
+  const [disciplines, setDisciplines] = useState([]);
+  const [discipline, setDiscipline] = useState(null);
+
+  const studentRepository = new StudentRepository();
+  const diciplineRepository = new DiciplineRepository();
+
+  const getDiscipline = () => {
+    setDisciplines(
+      diciplineRepository
+        .getAll()
+        .map((e) => ({ ...e, label: e.name, value: e.id }))
+    );
+  };
+
+  const getStudents = () => {
+    setStudents(studentRepository.getAll());
+  };
+
+  useEffect(() => {
+    getStudents();
+    getDiscipline();
+  }, []);
+
   return (
     <>
       <div className="row mb-4">
@@ -9,7 +37,11 @@ export function Pauta() {
           <label className="mb-2">
             <b>Disciplina:</b>
           </label>
-          <Select placeholder="" />
+          <Select
+            placeholder=""
+            options={disciplines}
+            onChange={(value) => setDiscipline(value)}
+          />
         </div>
       </div>
       <Card className="caixa">
@@ -27,50 +59,19 @@ export function Pauta() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input max={20} min={0} className="bold-input" />
-              </td>
-              <td>
-                <Input max={20} min={0} className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
+            {students.map(({ id, name }) => (
+              <tr>
+                <td>{name}</td>
+                <td>
+                  <Input className="bold-input" />
+                </td>
+                <td>
+                  <Input className="bold-input" />
+                </td>
+                <td className="text-center bold-input">20.5</td>
+                <td className="text-center">Aprovado</td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </Card>

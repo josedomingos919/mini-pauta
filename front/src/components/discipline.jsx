@@ -1,7 +1,43 @@
+import { useEffect, useState } from "react";
+import { Discipline } from "../model/discipline";
 import { Card, Table, Input, Button, CardHeader } from "reactstrap";
-import Select from "react-select";
+import { DiciplineRepository } from "../repository/disciplineRepository";
 
 export function Disciplina() {
+  const [data, setData] = useState([]);
+  const [discipline, setDiscipline] = useState("");
+  const diciplineRepository = new DiciplineRepository();
+
+  const handleAdd = () => {
+    if (discipline) {
+      diciplineRepository.add(
+        new Discipline({
+          name: discipline,
+        })
+      );
+
+      setDiscipline("");
+      getData();
+    } else {
+      alert("Preencha todo o form ?");
+    }
+  };
+
+  const getData = () => {
+    setData(diciplineRepository.getAll());
+  };
+
+  const handleDelete = (id) => {
+    if (confirm("Pretende remover ?")) {
+      diciplineRepository.remove(id);
+      getData();
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <>
       <div className="row mb-4">
@@ -9,7 +45,18 @@ export function Disciplina() {
           <label className="mb-2">
             <b>Disciplina:</b>
           </label>
-          <Select placeholder="" />
+          <Input
+            value={discipline}
+            onChange={(e) => {
+              setDiscipline(e.target.value);
+            }}
+            placeholder=""
+          />
+        </div>
+        <div className="col-4 p-2">
+          <Button onClick={handleAdd} className="mt-4 btn-warning">
+            Adicionar
+          </Button>
         </div>
       </div>
       <Card className="caixa">
@@ -19,58 +66,24 @@ export function Disciplina() {
         <Table className="mb-0" striped>
           <thead>
             <tr className="containerP">
-              <th>Nome Completo</th>
-              <th style={{ width: 100 }}>Nota 1</th>
-              <th style={{ width: 100 }}>Nota 2</th>
-              <th className="text-center">Média</th>
-              <th className="text-center">Situação</th>
+              <th>Nome</th>
+              <th className="text-center">Opções</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input max={20} min={0} className="bold-input" />
-              </td>
-              <td>
-                <Input max={20} min={0} className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
-            <tr>
-              <td>José Domingos Cassua N'donge</td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td>
-                <Input className="bold-input" />
-              </td>
-              <td className="text-center bold-input">20.5</td>
-              <td className="text-center">Aprovado</td>
-            </tr>
+            {data.map(({ id, name }) => (
+              <tr key={id}>
+                <td>{name}</td>
+                <td className="text-center">
+                  <Button
+                    className="btn-danger"
+                    onClick={() => handleDelete(id)}
+                  >
+                    Remover
+                  </Button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </Card>
