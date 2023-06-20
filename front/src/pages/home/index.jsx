@@ -1,21 +1,10 @@
-import {
-  Card,
-  Table,
-  Input,
-  Button,
-  CardHeader,
-  Nav,
-  NavItem,
-  NavLink,
-} from "reactstrap";
+import { Nav, NavItem, NavLink } from "reactstrap";
 import { useState } from "react";
-
-import Select from "react-select";
-
-import * as S from "./styles";
-import { Pauta } from "../../components/pauta";
+import { PautaScreen } from "../../components/pauta";
 import { Disciplina } from "../../components/discipline";
 import { Students } from "../../components/student";
+
+import * as S from "./styles";
 
 export const HomePage = () => {
   const tabs = ["Pauta", "Disciplina", "Aluno"];
@@ -36,13 +25,14 @@ export const HomePage = () => {
                   setTab(index);
                 }}
                 active={index == tab}
-                className="nav-item">
+                className="nav-item"
+              >
                 {text}
               </NavLink>
             </NavItem>
           ))}
         </Nav>
-        {tab == 0 && <Pauta />}
+        {tab == 0 && <PautaScreen />}
         {tab == 1 && <Disciplina />}
         {tab == 2 && <Students />}
       </S.Body>
