@@ -54,7 +54,7 @@ export function Disciplina() {
           />
         </div>
         <div className="col-4 p-2">
-          <Button onClick={handleAdd} className="mt-4 btn-warning">
+          <Button onClick={handleAdd} className="mt-4">
             Adicionar
           </Button>
         </div>
@@ -87,9 +87,6 @@ export function Disciplina() {
           </tbody>
         </Table>
       </Card>
-      <div className="mt-3">
-        <Button color="warning">Salvar</Button>
-      </div>
     </>
   );
 }

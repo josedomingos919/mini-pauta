@@ -12,5 +12,5 @@ export const Container = styled.div`
 
 export const Body = styled.div`
   width: 100%;
-  max-width: 40%;
+  max-width: 50%;
 `;

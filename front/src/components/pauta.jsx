@@ -181,6 +181,7 @@ export function PautaScreen() {
                 <td>{name}</td>
                 <td>
                   <Input
+                    disabled={!discipline?.value}
                     value={getNota1(id)}
                     className="bold-input"
                     onChange={(e) => setNota1(id, e.target.value)}
@@ -188,6 +189,7 @@ export function PautaScreen() {
                 </td>
                 <td>
                   <Input
+                    disabled={!discipline?.value}
                     value={getNota2(id)}
                     className="bold-input"
                     onChange={(e) => setNota2(id, e.target.value)}
