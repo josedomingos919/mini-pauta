@@ -25,4 +25,6 @@ Projeto para fazer o cálculo o rápido de media de estudantes e gerar a mini pa
 - POO
 - Repository Pattern
 
+# O Projeto
+
 Obrigado!
