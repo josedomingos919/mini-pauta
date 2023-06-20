@@ -1,6 +1,56 @@
-.bold-input {
-  font-weight: bold;
+body {
+  background-color: #f08f1e;
+
 }
+
+.caixa {
+  background-color: #fe9a55;
+  color: #fff !important;
+}
+
+
+.headTitle {
+  background-color: #f08f1e;
+}
+
+
+.containerP {
+  background-color: #ef7f2d;
+  color: #fff !important;
+}
+
+
+
+b {
+  color: #fff;
+}
+
+tr td,
+tr th {
+  border: none;
+}
+
+thead,
+tbody {
+  border: none;
+}
+
+nav {
+  color: #fff;
+}
+
+th {
+  font-weight: normal;
+}
+
+.warning {
+  background-color: #ef7f2d;
+}
+
+.bold-input {
+  background-color: #ef7f2d;
+}
+
 
 .x-input {
   border: none;
@@ -12,5 +62,21 @@
 }
 
 .title-p {
-  color: #bdbdbd;
+  color: #fff;
+  font-weight: normal;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav-item {
+  color: #fff;
+}
+
+.nav-item:hover {
+  background-color: #ef7f2d;
+  color: white;
+}
+
+.btn-salvar {
+  background-color: #ef7f2d;
+  color: #fff;
 }

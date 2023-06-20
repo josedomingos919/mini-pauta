@@ -12,8 +12,8 @@ export function Pauta() {
           <Select placeholder="" />
         </div>
       </div>
-      <Card>
-        <CardHeader className="p-2">
+      <Card className="caixa">
+        <CardHeader className="p-2 headTitle">
           <b className="title-p">Lista Nominal</b>
         </CardHeader>
         <Table className="mb-0" striped>
@@ -75,7 +75,7 @@ export function Pauta() {
         </Table>
       </Card>
       <div className="mt-3">
-        <Button color="primary">Salvar</Button>
+        <Button color="warning">Salvar</Button>
       </div>
     </>
   );

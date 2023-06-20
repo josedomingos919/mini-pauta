@@ -23,7 +23,7 @@ export const HomePage = () => {
   const [tab, setTab] = useState(0);
 
   return (
-    <S.Container>
+    <S.Container className="containerP">
       <b className="mb-4">Mini-Pauta</b>
       <S.Body>
         <Nav tabs className="mb-4">
@@ -36,7 +36,7 @@ export const HomePage = () => {
                   setTab(index);
                 }}
                 active={index == tab}
-              >
+                className="nav-item">
                 {text}
               </NavLink>
             </NavItem>

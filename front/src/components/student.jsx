@@ -43,7 +43,7 @@ export function Students() {
           <label className="mb-2">
             <b>Nome:</b>
           </label>
-          <Input
+          <Input className="bold-input"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder=""
@@ -53,21 +53,21 @@ export function Students() {
           <label className="mb-2">
             <b>Sobrenome:</b>
           </label>
-          <Input
+          <Input className="bold-input"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             placeholder=""
           />
         </div>
         <div className="col-4 pt-2">
-          <Button onClick={handleAdd} color="primary mt-4">
+          <Button onClick={handleAdd} color="warning mt-4">
             Adicionar
           </Button>
         </div>
       </div>
 
-      <Card>
-        <CardHeader className="p-2">
+      <Card className="caixa">
+        <CardHeader className="p-2 headTitle">
           <b className="title-p">Alunos</b>
         </CardHeader>
         <Table className="mb-0" striped>
