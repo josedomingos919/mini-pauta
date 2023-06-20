@@ -72,7 +72,7 @@ export function Students() {
         </CardHeader>
         <Table className="mb-0" striped>
           <thead>
-            <tr>
+            <tr className="containerP">
               <th>Nome</th>
               <th>Sobrenome</th>
               <th>Opções</th>

@@ -24,7 +24,7 @@ export const HomePage = () => {
 
   return (
     <S.Container className="containerP">
-      <b className="mb-4">Mini-Pauta</b>
+      <b className="mb-4">MINI-PAUTA</b>
       <S.Body>
         <Nav tabs className="mb-4">
           {tabs.map((text, index) => (

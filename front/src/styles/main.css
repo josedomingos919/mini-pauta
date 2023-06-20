@@ -28,6 +28,8 @@ b {
 tr td,
 tr th {
   border: none;
+  color: #fff;
+  font-size: 15px;
 }
 
 thead,
@@ -62,7 +64,7 @@ th {
 }
 
 .title-p {
-  color: #fff;
+  color: #000;
   font-weight: normal;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

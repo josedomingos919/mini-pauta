@@ -18,7 +18,7 @@ export function Pauta() {
         </CardHeader>
         <Table className="mb-0" striped>
           <thead>
-            <tr>
+            <tr className="containerP">
               <th>Nome Completo</th>
               <th style={{ width: 100 }}>Nota 1</th>
               <th style={{ width: 100 }}>Nota 2</th>
