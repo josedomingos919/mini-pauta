@@ -52,13 +52,15 @@ export function PautaScreen() {
   const getNota1 = (studentId) => {
     const pauta = getStudentPauta(studentId, discipline);
 
-    return pauta?.nota1;
+    if (pauta?.nota1 >= 0 && pauta?.nota1 <= 20) return pauta?.nota1;
+    else return undefined;
   };
 
   const getNota2 = (studentId) => {
     const pauta = getStudentPauta(studentId);
 
-    return pauta?.nota2;
+    if (pauta?.nota1 >= 0 && pauta?.nota1 <= 20) return pauta?.nota2;
+    else return undefined;
   };
 
   const setNota1 = (id, value) => {
@@ -181,6 +183,10 @@ export function PautaScreen() {
                 <td>{name}</td>
                 <td>
                   <Input
+                    min={0}
+                    max={20}
+                    maxLength={2}
+                    type="number"
                     disabled={!discipline?.value}
                     value={getNota1(id)}
                     className="bold-input"
@@ -189,6 +195,10 @@ export function PautaScreen() {
                 </td>
                 <td>
                   <Input
+                    min={0}
+                    max={20}
+                    maxLength={2}
+                    type="number"
                     disabled={!discipline?.value}
                     value={getNota2(id)}
                     className="bold-input"
@@ -196,7 +206,7 @@ export function PautaScreen() {
                   />
                 </td>
                 <td className="text-center bold-input">{getMedia(id)}</td>
-                <td className="text-center">{getResultado(id)}</td>
+                <td className={"text-center"}>{getResultado(id)}</td>
               </tr>
             ))}
           </tbody>
